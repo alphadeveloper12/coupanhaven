@@ -64,7 +64,14 @@ def category(request):
     return render(request, 'category.html', context=context)
 
 def coupans(request):
-    return render(request, 'coupans.html')
+    page = int(request.GET.get('page', 1))  # Convert 'page' parameter to an integer
+    start = (page - 1) * 15
+    end = page * 15
+    coupons = Coupon.objects.all()[start:end]
+    return render(request, 'coupans.html', {'coupons': coupons, 'page': page})
+
+
+
 
 def dealCoupans(request):
     return render(request, 'dealCoupans.html')
