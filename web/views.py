@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from web.models import *
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage
+
+
 # Create your views here.
 def home(request):
     stores = Store.objects.all()
@@ -63,12 +66,28 @@ def category(request):
     }
     return render(request, 'category.html', context=context)
 
-def coupans(request):
-    page = int(request.GET.get('page', 1))  # Convert 'page' parameter to an integer
-    start = (page - 1) * 15
-    end = page * 15
-    coupons = Coupon.objects.all()[start:end]
-    return render(request, 'coupans.html', {'coupons': coupons, 'page': page})
+
+def coupans(request, page=1):
+    page = int(page)
+    items_per_page = 15
+
+    # Query all coupons
+    all_coupons = Coupon.objects.all()
+
+    # Paginate the coupons
+    paginator = Paginator(all_coupons, items_per_page)
+
+    # Get the current page
+    coupons = paginator.page(page)
+
+    # If the current page is not the first page, get the coupons from the previous page
+    if page > 1:
+        previous_page = paginator.page(page - 1)
+        previous_coupons = previous_page.object_list
+    else:
+        previous_coupons = []
+
+    return render(request, 'coupans.html', {'coupons': coupons, 'previous_coupons': previous_coupons})
 
 
 

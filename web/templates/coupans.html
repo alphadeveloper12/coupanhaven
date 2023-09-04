@@ -52,10 +52,10 @@
                                         </div>
                                     </div>
                                     <div class="coupon-types-list">
-                                        <a href="https://ecoupono.com/coupon-category/coupons/?coupon_type=all"
+                                        <a href=""
                                            class="store-filter-button ui button tiny filter-nav current"
                                            data-filter="all">All <span
-                                                class="offer-count all-count">{{ coupons.count.all }}</span></a>
+                                                class="offer-count all-count">{{ all_coupons }}</span></a>
                                         <a href="https://ecoupono.com/coupon-category/coupons/?coupon_type=code"
                                            class="store-filter-button ui button tiny filter-nav " data-filter="code">Codes
                                             <span
@@ -231,13 +231,15 @@
                             {% endfor %}
                         </div>
                     </section>
+                 {% if coupons.has_next %}
                     <div class="couponcat-pagination-wrap" id="couponcat-pagination-wrap">
                         <div class="couponcat-load-more wpb_content_elementcouponcat-load-more wpb_content_element">
-                            <a href="#" class="ui button btn btn_primary btn_large" id="load-more-btn"
+                            <a href="{% url 'coupans_page' coupons.next_page_number %}" class="ui button btn btn_primary btn_large" id="load-more-btn"
                                data-loading-text="Loading...">Load More Coupons <i
                                     class="fa fa-arrow-alt-circle-down"></i></a>
                         </div>
                     </div>
+                {% endif %}
                 </main>
                 <!-- #main -->
             </div>
@@ -323,45 +325,6 @@
     </div>
     <!-- END .site-content -->
 
-    <script>
-        const page = 1; // Initialize the page number
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            const couponList = $('#coupon-list');
-            const loadMoreButton = $('#load-more-btn');
-            let currentPage = 1; // Initialize the current page to 1
 
-            loadMoreButton.on('click', function () {
-                currentPage++; // Increment the page number
-
-                // Update the button text while loading
-                loadMoreButton.html('Loading...');
-
-                // Make an AJAX request to fetch the next set of coupons using jQuery
-                $.ajax({
-                    url: `/coupans/?page=${currentPage}`,
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        // Restore the original button text
-                        loadMoreButton.html('Load More Coupons <i class="fa fa-arrow-alt-circle-down"></i>');
-
-                        // Append the new coupons to the coupon list
-                        data.coupons.forEach(coupon => {
-                            const couponItem = $('<div></div>');
-                            // Build the couponItem HTML structure similar to your existing code
-                            // You can use the data from the response to populate the fields
-                            // ...
-
-                            // Append the new coupon item to the coupon list
-                            couponList.append(couponItem);
-                        });
-                    }
-                });
-            });
-        });
-    </script>
 
 {% endblock %}
