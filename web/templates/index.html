@@ -10,14 +10,14 @@
                              data-settings="{&quot;items&quot;:1,&quot;nav&quot;:true,&quot;navText&quot;:[&quot;&lt;img src=\&quot;https:\/\/ecoupono.com\/wp-content\/themes\/wp-coupon-pro\/assets\/images\/arrow-left.png\&quot;&gt;&quot;,&quot;&lt;img src=\&quot;https:\/\/ecoupono.com\/wp-content\/themes\/wp-coupon-pro\/assets\/images\/arrow-right.png\&quot;&gt;&quot;],&quot;navSpeed&quot;:300,&quot;autoplay&quot;:true,&quot;smartSpeed&quot;:300,&quot;autoplayHoverPause&quot;:true,&quot;dots&quot;:false,&quot;rtl&quot;:false}">
                             <div class="item">
                                 <a title="Best Coupons &amp; Deals"
-                                   href="https://ecoupono.com/coupon-category/coupons/"> <img
+                                   href=#"> <img
                                         src="https://ecoupono.com/wp-content/uploads/2022/12/Picture1tt.png" alt="">
 
                                 </a></div>
 
                             <div class="item">
                                 <a title="Best Gift Coupons &amp; Deals"
-                                   href="https://www.awin1.com/cread.php?awinmid=22773&#038;awinaffid=1208082"> <img
+                                   href="#"> <img
                                         src="https://ecoupono.com/wp-content/uploads/2023/03/img970x2501-1666017051213.gif"
                                         alt="">
 
@@ -130,7 +130,8 @@
                                                     </div>
                                                 {% else %}
                                                     <div class="coupon-detail coupon-button-type">
-                                                        <a rel="nofollow" data-type="sale" data-coupon-id="{{ coupon.id }}"
+                                                        <a rel="nofollow" data-type="sale"
+                                                           data-coupon-id="{{ coupon.id }}"
                                                            data-aff-url="{{ coupon.deep_link }}"
                                                            class="coupon-deal coupon-button"
                                                            href="#">Get
@@ -138,12 +139,13 @@
                                                         <div class="clear"></div>
 
                                                         <div class="exp-text">
-                                                            Expires {{ coupon.expires_at }} <a data-position="top center"
-                                                                                         data-inverted=""
-                                                                                         data-tooltip="Save this coupon"
-                                                                                         href="#"
-                                                                                         data-coupon-id="{{ coupon.id }}"
-                                                                                         class="add-coupon-favorite coupon-save icon-popup"><i
+                                                            Expires {{ coupon.expires_at }} <a
+                                                                data-position="top center"
+                                                                data-inverted=""
+                                                                data-tooltip="Save this coupon"
+                                                                href="#"
+                                                                data-coupon-id="{{ coupon.id }}"
+                                                                class="add-coupon-favorite coupon-save icon-popup"><i
                                                                 class="outline star icon"></i></a>
                                                         </div>
 
@@ -173,114 +175,17 @@
                     </h3>
                     <div id="" class="fav-category-area">
                         <ul class="cate-parent" style="grid-template-columns:auto auto auto auto ;">
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/coupons/"
-                                   class="category-name category-parent">
+                            {% for category in categories %}
+                                <li class="cate-item">
+                                    <a href="#"
+                                       class="category-name category-parent">
                                 <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Coupons-Categories-Image-300x173.png"
+                                        <img src="{{ category.image.url }}"
                                              alt=" ">
-                                            <div class="cat-title">Coupons</div>
+                                            <div class="cat-title">{{ category.name }}</div>
                                         </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/fashion/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Fashion-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Fashion</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/deals/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Deals-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Deals</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/apparel-and-accessories/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Apparel-Accessories-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Apparel &amp; Accessories</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/health-and-beauty/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Health-Beauty-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Health &amp; Beauty</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/gift/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Gift-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Girfts, Jewellery &amp; Accessories</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/home-and-garden/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Home-Garden-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Home &amp; Garden</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/electronics/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Electronics-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Electronics</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/cosmetics-skincare/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/themes/wp-coupon-pro/assets/images/category.png"
-                                             alt=" ">
-                                            <div class="cat-title">Cosmetics &amp; Skincare</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/furniture/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Furniture-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Furniture</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/arts-and-entertainment/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/uploads/2021/06/Arts-Entertainment-Categories-Image-300x173.png"
-                                             alt=" ">
-                                            <div class="cat-title">Arts &amp; Entertainment</div>
-                                        </span> </a>
-                            </li>
-                            <li class="cate-item">
-                                <a href="https://ecoupono.com/coupon-category/fragrance/"
-                                   class="category-name category-parent">
-                                <span class="thumb-img">
-                                        <img src="https://ecoupono.com/wp-content/themes/wp-coupon-pro/assets/images/category.png"
-                                             alt=" ">
-                                            <div class="cat-title">Fragrance</div>
-                                        </span> </a>
-                            </li>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <!-- .fav-category-area -->

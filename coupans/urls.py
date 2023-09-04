@@ -30,6 +30,9 @@ urlpatterns = [
     path('dealCoupans/', dealCoupans, name="dealCoupans"),
     path('blog/', blog, name="blog"),
     path('stores/store_detail/<int:pk>/', store_details, name='store-detail'),
+    path('aboutUs/', about_us, name='about-us'),
+    path('privacy_policy/', privacy_policy, name='privacy-policy'),
+    path('contact_us/', contact_us, name='contact-us'),
 ]
 
 if settings.DEBUG:

@@ -395,10 +395,10 @@
                                 </p>
                                 <div id="footer-1" class="four wide column footer-column widget-area"
                                      role="complementary">
-                                    <div class="textwidget">Let’s face it. You’re going to spend money online anyway.
-                                        Why not spend it wisely? ecoupono.com is here to help you make wise buying
-                                        decisions. We scour the internet for only… <a
-                                                href="https://ecoupono.com/about-us/">Read More</a></div>
+                                    <div class="textwidget">Let's be realistic, online spending is a part of modern
+                                        life. But why not ensure that every online purchase you make is a smart one?
+                                        Welcome to… <a
+                                                href="{% url 'about-us' %}">Read More</a></div>
                                 </div>
                                 <div id="footer-2" class="eight wide column footer-column widget-area"
                                      role="complementary">
@@ -415,71 +415,20 @@
                     <div id="footer-2" class="eight wide column footer-column widget-area" role="complementary">
                         <div id="footer-new-store" class="wide column footer-column widget-area">
                             <div class="store-listing-box store-popular-listing">
-                                <div class="store-letter-heading">
-                                    <h2 class="section-heading">Recommended Stores</h2>
-                                </div>
-                                <div class="store-letter-content">
-                                    <div class="ui grid">
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/ace-hardware-promo/"
-                                               class="ui image middle aligned">
-                                                Ace Hardware </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/baker-ross/"
-                                               class="ui image middle aligned">
-                                                Baker Ross </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/myprotein/"
-                                               class="ui image middle aligned">
-                                                Myprotein </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/alamy/" class="ui image middle aligned">
-                                                Alamy </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/sonic-drive-in/"
-                                               class="ui image middle aligned">
-                                                Sonic Drive-In </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/kinguin/"
-                                               class="ui image middle aligned">
-                                                Kinguin </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/walgreens/"
-                                               class="ui image middle aligned">
-                                                Walgreens </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/wild-natural-deodorant/"
-                                               class="ui image middle aligned">
-                                                Wild Natural Deodorant </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/promo-4/"
-                                               class="ui image middle aligned">
-                                                KKday </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/saxx-underwear/"
-                                               class="ui image middle aligned">
-                                                Saxx Underwear </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/everything-5-pound/"
-                                               class="ui image middle aligned">
-                                                Everything 5 Pound </a>
-                                        </div>
-                                        <div class="eight wide mobile five wide tablet five wide computer column">
-                                            <a href="https://ecoupono.com/store/macys/" class="ui image middle aligned">
-                                                Macys </a>
-                                        </div>
-                                    </div>
-                                </div>
+{#                                <div class="store-letter-heading">#}
+{#                                    <h2 class="section-heading">Recommended Stores</h2>#}
+{#                                </div>#}
+{#                                <div class="store-letter-content">#}
+{#                                    <div class="ui grid">#}
+{#                                        {% for store in stores %}#}
+{#                                            <div class="eight wide mobile five wide tablet five wide computer column">#}
+{#                                                <a href="{% url 'store-detail' store.id %}"#}
+{#                                                   class="ui image middle aligned">#}
+{#                                                   {{ store.name }} </a>#}
+{#                                            </div>#}
+{#                                        {% endfor %}#}
+{#                                    </div>#}
+{#                                </div>#}
                             </div>
                         </div>
                     </div>
@@ -503,10 +452,10 @@
                                     <div class="clear"></div>
 
                                     <div class="newsletter-text after-form">You can opt out of our newsletters at any
-                                        time. See our <a href="https://ecoupono.com/privacy-policy/"> privacy policy</a>.
+                                        time. See our <a href="{% url 'privacy-policy' %}"> privacy policy</a>.
                                     </div>
                                     <div class="sidebar-social">
-                                        <a target="_blank" href="https://www.facebook.com/ecoupono"
+                                        <a target="_blank" href="#"
                                            class="ui icon button"><i class="facebook icon"></i></a>
 
                                         <a target="_blank" href="#" class="ui icon button"><i class="twitter icon"></i></a>
@@ -527,18 +476,18 @@
 
             <div class="footer_copy">
                 <div class="cpy_text">
-                    <span>Copyright &copy; 2023 ecoupono. All Rights Reserved. </span></div>
+                    <span>Copyright &copy; 2023 CoupanHaven. All Rights Reserved. </span></div>
                 <nav id="footer-nav" class="site-footer-nav">
                     <ul id="menu-footer-menu" class="menu">
                         <li id="menu-item-227"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-227"><a
-                                href="https://ecoupono.com/about-us/">About Us</a></li>
+                                href="{% url 'about-us' %}">About Us</a></li>
                         <li id="menu-item-223"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a
-                                href="https://ecoupono.com/privacy-policy-2/">Privacy Policy</a></li>
+                                href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
                         <li id="menu-item-228"
                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-228"><a
-                                href="https://ecoupono.com/contact-us/">Contact US</a></li>
+                                href="{% url 'contact-us' %}">Contact US</a></li>
                     </ul>
                 </nav>
             </div>

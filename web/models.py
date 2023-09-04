@@ -12,6 +12,7 @@ class Store(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='media/category_images/')
+    icon = models.CharField(max_length=100)
 
     def __str__(self):
         return f'{self.name}'
