@@ -72,9 +72,17 @@ def coupans(request, page=1):
     items_per_page = 15
 
     # Query all coupons
-    all_coupons = Coupon.objects.all()
+    all_coupons = Coupon.objects.filter(is_deal=False)
 
-    # Paginate the coupons
+    # Get the count of code (where is_deal is False) and deal (where is_deal is True) coupons
+    code_count = Coupon.objects.filter(is_deal=False).count()
+    deal_count = Coupon.objects.filter(is_deal=True).count()
+
+    # Get the total count of all coupons
+
+    total_count = Coupon.objects.all().count()
+
+    # Paginate all coupons
     paginator = Paginator(all_coupons, items_per_page)
 
     # Get the current page
@@ -87,13 +95,50 @@ def coupans(request, page=1):
     else:
         previous_coupons = []
 
-    return render(request, 'coupans.html', {'coupons': coupons, 'previous_coupons': previous_coupons})
+    return render(request, 'coupans.html', {
+        'coupons': coupons,
+        'previous_coupons': previous_coupons,
+        'code_count': code_count,
+        'deal_count': deal_count,
+        'total_count': total_count  # Pass the total count of all coupons to the template
+    })
 
 
+def dealCoupans(request, page=1):
+    page = int(page)
+    items_per_page = 15
 
+    # Query all coupons
+    all_coupons = Coupon.objects.filter(is_deal=True)
 
-def dealCoupans(request):
-    return render(request, 'dealCoupans.html')
+    # Get the count of code (where is_deal is False) and deal (where is_deal is True) coupons
+    code_count = Coupon.objects.filter(is_deal=False).count()
+    deal_count = Coupon.objects.filter(is_deal=True).count()
+
+    # Get the total count of all coupons
+
+    total_count = Coupon.objects.all().count()
+
+    # Paginate all coupons
+    paginator = Paginator(all_coupons, items_per_page)
+
+    # Get the current page
+    coupons = paginator.page(page)
+
+    # If the current page is not the first page, get the coupons from the previous page
+    if page > 1:
+        previous_page = paginator.page(page - 1)
+        previous_coupons = previous_page.object_list
+    else:
+        previous_coupons = []
+
+    return render(request, 'dealCoupans.html', {
+        'coupons': coupons,
+        'previous_coupons': previous_coupons,
+        'code_count': code_count,
+        'deal_count': deal_count,
+        'total_count': total_count  # Pass the total count of all coupons to the template
+    })
 
 def blog(request):
     return render(request, 'blog.html')
@@ -115,15 +160,38 @@ def base(request):
     }
     return render(request, 'base.html', context=context)
 
-def store_details(request, pk):
-    store = get_object_or_404(Store, id=pk)
-    coupans = Coupon.objects.filter(store=store)
-    # deals = Deal.objects.filter(store=store)
+def store_details(request,pk, page=1):
+    page = int(page)
+    items_per_page = 15
 
-    # categories_and_deals = list(coupans) + list(deals)
+    # Query all coupons
+    all_coupons = Coupon.objects.filter(store__id=pk)
 
-    context = {
-        "stores": store,
-        "categories_and_deals": coupans,
-    }
-    return render(request, 'store_details.html', context=context)
+    # Get the count of code (where is_deal is False) and deal (where is_deal is True) coupons
+    code_count = all_coupons.filter(is_deal=False).count()
+    deal_count = all_coupons.filter(is_deal=True).count()
+
+    # Get the total count of all coupons
+
+    total_count = all_coupons.count()
+
+    # Paginate all coupons
+    paginator = Paginator(all_coupons, items_per_page)
+
+    # Get the current page
+    coupons = paginator.page(page)
+
+    # If the current page is not the first page, get the coupons from the previous page
+    if page > 1:
+        previous_page = paginator.page(page - 1)
+        previous_coupons = previous_page.object_list
+    else:
+        previous_coupons = []
+
+    return render(request, 'store_details.html', {
+        'coupons': coupons,
+        'previous_coupons': previous_coupons,
+        'code_count': code_count,
+        'deal_count': deal_count,
+        'total_count': total_count  # Pass the total count of all coupons to the template
+    })

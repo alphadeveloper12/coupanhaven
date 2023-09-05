@@ -55,19 +55,16 @@
                                         <a href=""
                                            class="store-filter-button ui button tiny filter-nav current"
                                            data-filter="all">All <span
-                                                class="offer-count all-count">{{ all_coupons }}</span></a>
-                                        <a href="https://ecoupono.com/coupon-category/coupons/?coupon_type=code"
+                                                class="offer-count all-count">{{ total_count }}</span></a>
+                                        <a href=""
                                            class="store-filter-button ui button tiny filter-nav " data-filter="code">Codes
                                             <span
-                                                    class="offer-count code-count">381</span></a>
-                                        <a href="https://ecoupono.com/coupon-category/coupons/?coupon_type=sale"
+                                                    class="offer-count code-count">{{ code_count }}</span></a>
+                                        <a href=""
                                            class="store-filter-button ui button tiny filter-nav " data-filter="sale">Deals
                                             <span
-                                                    class="offer-count sale-count">142</span></a>
-                                        <a href="https://ecoupono.com/coupon-category/coupons/?coupon_type=print"
-                                           class="store-filter-button ui button tiny filter-nav " data-filter="print">Printable
-                                            <span
-                                                    class="offer-count print-count">0</span></a>
+                                                    class="offer-count sale-count">{{ deal_count }}</span></a>
+
                                     </div>
                                 </div>
                             </div>
@@ -259,63 +256,63 @@
                 <!--  Available  -->
                 <div class="cat_coupon_available">
                         <span>
-            <b> 523+ </b>
+            <b> {{ total_count }}+ </b>
         </span>
                     <p>COUPONS AVAILABLE</p>
                 </div>
 
 
-                <aside class="widget widget_coupon_cat_filter">
-                    <h4 class="widget-title">Filter</h4>
-                    <div class="shadow-box">
-                        <input type="hidden" class="store_base_pagenum_url" name="store_base_pagenum_url"
-                               value="https://ecoupono.com/coupon-category/coupons/"/>
-                        <input type="hidden" class="store_pagenum_url" name="store_pagenum_url"
-                               value="https://ecoupono.com/coupon-category/coupons/"/>
-                        <input type="hidden" class="store_next_pagenum_url" name="store_next_pagenum_url"
-                               value="https://ecoupono.com/coupon-category/coupons/page/2/"/>
-
-                        <div class="couponcat-sortby-wrapper ui list">
-                            <h5>Sort by</h5>
-                            <div class="item">
-                                <label for="store-sortby-newest">
-                                    <input id="store-sortby-newest" checked='checked' type="radio"
-                                           class="coupon-cat-sortby sortby-newest" name="coupon-cat-sortby"
-                                           value="newest"/>
-                                    <span class="filter-sortby-name">Newest</span>
-                                </label>
-                            </div>
-
-                            <div class="item">
-                                <label for="store-sortby-popularity">
-                                    <input id="store-sortby-popularity" type="radio"
-                                           class="coupon-cat-sortby sortby-popularity" name="coupon-cat-sortby"
-                                           value="popularity"/>
-                                    <span class="filter-sortby-name">Popularity</span>
-                                </label>
-                            </div>
-
-                            <div class="item">
-                                <label for="store-sortby-endingsoon">
-                                    <input id="store-sortby-endingsoon" type="radio"
-                                           class="coupon-cat-sortby sortby-ending-soon" name="coupon-cat-sortby"
-                                           value="ending-soon"/>
-                                    <span class="filter-sortby-name">Ending Soon</span>
-                                </label>
-                            </div>
-
-                            <div class="item">
-                                <label for="store-sortby-expired">
-                                    <input id="store-sortby-expired" type="radio"
-                                           class="coupon-cat-sortby sortby-expired" name="coupon-cat-sortby"
-                                           value="expired"/>
-                                    <span class="filter-sortby-name">Expired</span>
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                </aside>
+{#                <aside class="widget widget_coupon_cat_filter">#}
+{#                    <h4 class="widget-title">Filter</h4>#}
+{#                    <div class="shadow-box">#}
+{#                        <input type="hidden" class="store_base_pagenum_url" name="store_base_pagenum_url"#}
+{#                               value="https://ecoupono.com/coupon-category/coupons/"/>#}
+{#                        <input type="hidden" class="store_pagenum_url" name="store_pagenum_url"#}
+{#                               value="https://ecoupono.com/coupon-category/coupons/"/>#}
+{#                        <input type="hidden" class="store_next_pagenum_url" name="store_next_pagenum_url"#}
+{#                               value="https://ecoupono.com/coupon-category/coupons/page/2/"/>#}
+{##}
+{#                        <div class="couponcat-sortby-wrapper ui list">#}
+{#                            <h5>Sort by</h5>#}
+{#                            <div class="item">#}
+{#                                <label for="store-sortby-newest">#}
+{#                                    <input id="store-sortby-newest" checked='checked' type="radio"#}
+{#                                           class="coupon-cat-sortby sortby-newest" name="coupon-cat-sortby"#}
+{#                                           value="newest"/>#}
+{#                                    <span class="filter-sortby-name">Newest</span>#}
+{#                                </label>#}
+{#                            </div>#}
+{##}
+{#                            <div class="item">#}
+{#                                <label for="store-sortby-popularity">#}
+{#                                    <input id="store-sortby-popularity" type="radio"#}
+{#                                           class="coupon-cat-sortby sortby-popularity" name="coupon-cat-sortby"#}
+{#                                           value="popularity"/>#}
+{#                                    <span class="filter-sortby-name">Popularity</span>#}
+{#                                </label>#}
+{#                            </div>#}
+{##}
+{#                            <div class="item">#}
+{#                                <label for="store-sortby-endingsoon">#}
+{#                                    <input id="store-sortby-endingsoon" type="radio"#}
+{#                                           class="coupon-cat-sortby sortby-ending-soon" name="coupon-cat-sortby"#}
+{#                                           value="ending-soon"/>#}
+{#                                    <span class="filter-sortby-name">Ending Soon</span>#}
+{#                                </label>#}
+{#                            </div>#}
+{##}
+{#                            <div class="item">#}
+{#                                <label for="store-sortby-expired">#}
+{#                                    <input id="store-sortby-expired" type="radio"#}
+{#                                           class="coupon-cat-sortby sortby-expired" name="coupon-cat-sortby"#}
+{#                                           value="expired"/>#}
+{#                                    <span class="filter-sortby-name">Expired</span>#}
+{#                                </label>#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{#                </aside>#}
             </div>
 
 
