@@ -67,7 +67,7 @@
                                                     {% for store in stores %}
                                                         <li class="column">
                                                             <a class="store-thumb"
-                                                               href="{% url 'store-detail' store.id %}">
+                                                               href="{% url 'store-detail' pk=store.id page='1' %}">
                                                                 <img width="193" height="50"
                                                                      src="{{ store.image.url }}"
                                                                      class="attachment-wpcoupon_small_thumb size-wpcoupon_small_thumb"

@@ -28,11 +28,12 @@ urlpatterns = [
     path('category/', category, name="category"),
     path('coupans/page/<int:page>/', coupans, name='coupans_page'),
     path('dealCoupans/page/<int:page>/', dealCoupans, name="dealCoupans"),
-    path('blog/', blog, name="blog"),
-    path('stores/store_detail/<int:pk>/', store_details, name='store-detail'),
+    # path('blog/', blog, name="blog"),
+    path('stores/store_detail/<int:pk>/<int:page>/', store_details, name='store-detail'),
     path('aboutUs/', about_us, name='about-us'),
     path('privacy_policy/', privacy_policy, name='privacy-policy'),
     path('contact_us/', contact_us, name='contact-us'),
+    path('coupan_detail/<int:pk>', coupan_detail, name='coupan-detail'),
 ]
 
 if settings.DEBUG:

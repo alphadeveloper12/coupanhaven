@@ -166,6 +166,7 @@ def store_details(request,pk, page=1):
 
     # Query all coupons
     all_coupons = Coupon.objects.filter(store__id=pk)
+    store = Store.objects.filter(id=pk)
 
     # Get the count of code (where is_deal is False) and deal (where is_deal is True) coupons
     code_count = all_coupons.filter(is_deal=False).count()
@@ -180,6 +181,7 @@ def store_details(request,pk, page=1):
 
     # Get the current page
     coupons = paginator.page(page)
+    categories = Category.objects.all()
 
     # If the current page is not the first page, get the coupons from the previous page
     if page > 1:
@@ -193,5 +195,16 @@ def store_details(request,pk, page=1):
         'previous_coupons': previous_coupons,
         'code_count': code_count,
         'deal_count': deal_count,
-        'total_count': total_count  # Pass the total count of all coupons to the template
+        'total_count': total_count,
+        'stores': store,
+        'categories': categories
     })
+
+def coupan_detail(request, pk):
+    # Retrieve the coupon using the provided primary key
+    coupon = get_object_or_404(Coupon, pk=pk)
+
+    # Access the associated store's data
+    store = coupon.store
+
+    return render(request, 'coupan_detail.html', {'coupons': coupon, 'stores': store})

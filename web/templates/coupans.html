@@ -75,7 +75,7 @@
                                      class="coupon-item store-listing-item has-thumb c-cat c-type-code shadow-box coupon-live">
                                     <div class="store-thumb-link">
                                         <div class="store-thumb thumb-img">
-                                            <a class="thumb-padding" href="{% url 'store-detail' coupon.store.id %}">
+                                            <a class="thumb-padding" href="{% url 'store-detail' pk=coupon.store.id page='1' %}">
                                                 <img width="160" height="160"
                                                      src="{{ coupon.store.image.url }}"
                                                      class="attachment-wpcoupon_medium-thumb size-wpcoupon_medium-thumb"
@@ -84,7 +84,7 @@
                                                      sizes="(max-width: 160px) 100vw, 160px"/> </a>
                                         </div>
                                         <div class="store-name"><a
-                                                href="{% url 'store-detail' coupon.store.id %}">{{ coupon.store.name }}
+                                                href="{% url 'store-detail' pk=coupon.store.id page='1' %}">{{ coupon.store.name }}
                                             Coupons<i class="angle right icon"></i></a></div>
                                     </div>
 
@@ -93,7 +93,7 @@
                                             <a class="coupon-link" title="{{ coupon.name }}"
                                                data-type="code" data-coupon-id="{{ coupon.id }}"
                                                data-aff-url="{{ coupon.deeplink }}" data-code="ACADEMY15"
-                                               href="{{ coupon.deeplink }}">{{ coupon.slug }}</a>
+                                               href="{% url 'coupan-detail' coupon.id %}">{{ coupon.slug }}</a>
                                         </h3>
                                         <div class="coupon-des">
                                             <div class="coupon-des-ellip">{{ coupon.description|wordwrap:7|slice:":"|safe }}<span
@@ -109,7 +109,7 @@
 
                                     <div class="coupon-detail coupon-button-type">
                                         <a rel="nofollow" data-type="code" data-coupon-id="{{ coupon.id }}"
-                                           href="{{ coupon.deeplink }}"
+                                           href="{% url 'coupan-detail' coupon.id %}"
                                            class="coupon-button coupon-code"
                                            data-tooltip="Click to copy &amp; open site" data-position="top center"
                                            data-inverted=""
@@ -131,99 +131,7 @@
                                     </div>
                                     <div class="clear"></div>
                                     <!-- Coupon Modal -->
-                                    <div data-modal-id="1587" class="ui modal coupon-modal coupon-code-modal">
-                                        <div class="scrolling content">
-                                            <div class="coupon-header clearfix">
-                                                <div class="coupon-store-thumb">
-                                                    <img width="160" height="160"
-                                                         src="https://ecoupono.com/wp-content/uploads/2023/08/logo.webp"
-                                                         class="attachment-wpcoupon_medium-thumb size-wpcoupon_medium-thumb"
-                                                         alt="" decoding="async" title="logo" loading="lazy"
-                                                         srcset="https://ecoupono.com/wp-content/uploads/2023/08/logo.webp 160w, https://ecoupono.com/wp-content/uploads/2023/08/logo-150x150.webp 150w, https://ecoupono.com/wp-content/uploads/2023/08/logo-115x115.webp 115w"
-                                                         sizes="(max-width: 160px) 100vw, 160px"/></div>
-                                                <div class="coupon-title" title="Save 15% on Tour and Activities">Save
-                                                    15% on Tour and Activities
-                                                </div>
-                                                <span class="close icon"></span>
-                                            </div>
-                                            <div class="coupon-content">
-                                                <p class="coupon-type-text">
-                                                    Copy this code and use at checkout </p>
-                                                <div class="modal-code">
-                                                    <div class="coupon-code">
-                                                        <div class="ui fluid action input massive">
-                                                            <input type="text" class="code-text" autocomplete="off"
-                                                                   readonly value="ACADEMY15">
-                                                            <button class="ui right labeled icon button btn btn_secondary">
-                                                                <i class="copy icon"></i>
-                                                                <span>Copy</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
 
-                                                </div>
-                                                <div class="clearfix">
-                                                    <div class="user-ratting">
-                                                        <div class="ui icon basic buttons">
-                                                            <div class="ui button icon-popup coupon-vote"
-                                                                 data-vote-type="up" data-coupon-id="1587"
-                                                                 data-position="top center" data-inverted=""
-                                                                 data-tooltip="This worked"><i
-                                                                    class="smile outline icon"></i></div>
-                                                            <div class="ui button icon-popup coupon-vote"
-                                                                 data-vote-type="down" data-coupon-id="1587"
-                                                                 data-position="top center" data-inverted=""
-                                                                 data-tooltip="It didn&#039;t work"><i
-                                                                    class="frown outline icon"></i></div>
-                                                            <div class="ui button icon-popup coupon-save"
-                                                                 data-coupon-id="1587" data-position="top center"
-                                                                 data-inverted="" data-tooltip="Save this coupon"><i
-                                                                    class="outline star icon"></i></div>
-                                                        </div>
-                                                        <div class="user-ratting-text">Did it work?</div>
-                                                    </div>
-
-                                                    <div class="go-store">
-                                                        <div class="go-to-btn">
-                                                            <a href="https://ecoupono.com/out/1587" rel="nofollow"
-                                                               target="_blank"
-                                                               class="ui button btn btn_secondary go-store">Go To
-                                                                Store<i class="angle right icon"></i></a>
-                                                        </div>
-                                                        <div class="show-detail"><a href="#">Coupon Detail<i
-                                                                class="angle down icon"></i></a></div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="coupon-popup-detail">
-                                                    <div class="coupon-detail-content">
-                                                        <p class="offer-description" data-description="">With a coupon,
-                                                            you may save 15% on Tours &amp; Activities at Viator.</p>
-                                                    </div>
-                                                    <p><strong>Expires</strong>: Expires September 30, 2023</p>
-                                                    <p><strong>Submitted</strong>: 3 weeks ago </p>
-                                                </div>
-                                            </div>
-                                            <div class="coupon-footer">
-                                                <ul class="clearfix">
-                                                    <li><span><i class="wifi icon"></i> 1 Used - 0 Today</span></li>
-                                                    <li class="modal-share">
-                                                        <a class="" href="#"><i class="share alternate icon"></i> Share</a>
-                                                        <div class="share-modal-popup ui popup top right transition hidden---">
-                                                            <a class='tiny ui facebook button'
-                                                               onClick="window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fecoupono.com%2Fstore%2Fviator%2Fsave-15-on-tour-and-activities%2F','sharer','toolbar=0,status=0,width=548,height=325'); return false;"
-                                                               href="javascript: void(0)"><i class="facebook icon"></i>
-                                                                Facebook</a><a class='tiny ui twitter button'
-                                                                               target="_blank"
-                                                                               onClick="window.open('https://twitter.com/intent/tweet?text=Save+15%25+on+Tour+and+Activities+https%3A%2F%2Fecoupono.com%2Fstore%2Fviator%2Fsave-15-on-tour-and-activities%2F','sharer','toolbar=0,status=0,width=548,height=325'); return false;"
-                                                                               href="javascript: void(0)"><i
-                                                                class="twitter icon"></i> Twitter</a></div>
-                                                    </li>
-                                                </ul>
-
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             {% endfor %}
                         </div>

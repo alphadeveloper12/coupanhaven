@@ -72,7 +72,7 @@
                                      class="coupon-item store-listing-item has-thumb c-cat c-type-sale shadow-box coupon-live">
                                     <div class="store-thumb-link">
                                         <div class="store-thumb thumb-img">
-                                            <a class="thumb-padding" href="{% url 'store-detail' coupon.store.id %}">
+                                            <a class="thumb-padding" href="{% url 'store-detail' pk=coupon.store.id page='1'%}">
                                                 <img width="160" height="160"
                                                      src="{{ coupon.store.image.url }}"
                                                      class="attachment-wpcoupon_medium-thumb size-wpcoupon_medium-thumb"
@@ -80,7 +80,7 @@
                                                      sizes="(max-width: 160px) 100vw, 160px"/> </a>
                                         </div>
                                         <div class="store-name"><a
-                                                href="{% url 'store-detail' coupon.store.id %}">{{ coupon.store.name }}
+                                                href="{% url 'store-detail' pk=coupon.store.id page='1' %}">{{ coupon.store.name }}
                                             Coupons<i class="angle right icon"></i></a></div>
                                     </div>
 
