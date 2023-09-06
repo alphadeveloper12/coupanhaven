@@ -208,3 +208,13 @@ def coupan_detail(request, pk):
     store = coupon.store
 
     return render(request, 'coupan_detail.html', {'coupons': coupon, 'stores': store})
+
+
+def deal_detail(request, pk):
+    # Retrieve the coupon using the provided primary key
+    coupon = get_object_or_404(Coupon, pk=pk)
+
+    # Access the associated store's data
+    store = coupon.store
+
+    return render(request, 'deal_details.html', {'coupons': coupon, 'stores': store})

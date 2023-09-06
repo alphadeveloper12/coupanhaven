@@ -34,6 +34,7 @@ urlpatterns = [
     path('privacy_policy/', privacy_policy, name='privacy-policy'),
     path('contact_us/', contact_us, name='contact-us'),
     path('coupan_detail/<int:pk>', coupan_detail, name='coupan-detail'),
+    path('deal_detail/<int:pk>', deal_detail, name='deal-detail'),
 ]
 
 if settings.DEBUG:

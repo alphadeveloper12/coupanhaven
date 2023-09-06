@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block main %}
+    <div id="content" class="site-content">
+        <section class="page-header" style="">
+            <div class="container">
+                <div class="inner">
+                    <div class="inner-content clearfix">
+                        <div class="header-content">
+                        </div>
+                        <div class="ui breadcrumb breadcrumbs"><span><a title="Go to coupan haven."
+                                                                        href="{% url 'home' %}" class="home"><span>Coupan Haven</span></a>
+                                </span> &gt; <span><a
+                                title="{{ coupans.category.name }}"
+                                href="#"
+                                class="taxonomy coupon_category"><span>{{ coupons.category.name }}</span></a>
+                                </span>
+                            &gt; <span><span class="post post-coupon current-item">{{ coupons.slug }}</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="content-wrap" class="single-coupon-container container right-sidebar">
+            <!-- Coupon single -->
+            <div data-modal-id="{{ coupons.slug }}" class="ui single-coupon-box coupon-modal coupon-code-modal shadow-box">
+                <div class="scrolling content">
+                    <div class="coupon-header clearfix">
+                        <div class="coupon-store-thumb">
+                            <img width="230" height="55"
+                                 src="{{ stores.image.url }}"
+                                 class="attachment-wpcoupon_medium-thumb size-wpcoupon_medium-thumb" alt=""
+                                 decoding="async" title="75a584aa-013d-47ea-aa55-ecbc5f031ad0"
+                                 loading="lazy"
+                                 sizes="(max-width: 230px) 100vw, 230px"/></div>
+                        <div class="coupon-title" title="{{ coupons.slug }}">
+                           {{ coupons.slug }}
+                        </div>
+                    </div>
+                    <div class="coupon-content">
+                        <p class="coupon-type-text">
+                            Deal Activated, no coupon code required! </p>
+                        <div class="modal-code">
+                            <a class="ui button btn btn_secondary deal-actived" target="_blank" rel="nofollow"
+                               href="{{ coupons.deeplink }}">Go To Store<i class="angle right icon"></i></a>
+                        </div>
+                        <div class="clearfix">
+                            <div class="user-ratting">
+{#                                <div class="ui icon basic buttons">#}
+{#                                    <div class="ui button icon-popup coupon-vote" data-vote-type="up"#}
+{#                                         data-coupon-id="1333" data-position="top center" data-inverted=""#}
+{#                                         data-tooltip="This worked"><i class="smile outline icon"></i></div>#}
+{#                                    <div class="ui button icon-popup coupon-vote" data-vote-type="down"#}
+{#                                         data-coupon-id="1333" data-position="top center" data-inverted=""#}
+{#                                         data-tooltip="It didn&#039;t work"><i class="frown outline icon"></i></div>#}
+{#                                    <div class="ui button icon-popup coupon-save" data-coupon-id="1333"#}
+{#                                         data-position="top center" data-inverted="" data-tooltip="Save this coupon"><i#}
+{#                                            class="outline star icon"></i></div>#}
+{#                                </div>#}
+{#                                <div class="user-ratting-text">Did it work?</div>#}
+                            </div>
+
+                            <div class="go-store">
+                                <div class="go-to-btn">
+                                </div>
+                                <div class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="coupon-popup-detail">
+                            <div class="coupon-detail-content">
+                                <div class="bp-star-ratings  top-left lft" data-id="1333">
+                                    <div class="bpsr-stars bpsr-star gray">
+                                        <div class="bpsr-fuel bpsr-star yellow" style="width:0%;"></div>
+                                        <!-- bpsr-fuel --><a href="#1"></a><a href="#2"></a><a href="#3"></a><a
+                                            href="#4"></a><a href="#5"></a>
+                                    </div>
+                                    <!-- bpsr-stars -->
+{#                                    <div class="bpsr-legend">Rate this post</div>#}
+                                    <!-- bpsr-legend -->
+                                </div>
+                                <!-- bp-star-ratings -->
+                            </div>
+                            <p><strong>Expires</strong>: Expires {{ coupons.expires_at }}</p>
+{#                            <p><strong>Submitted</strong>: 6 months ago </p>#}
+                        </div>
+                    </div>
+                    <div class="coupon-footer">
+                        <ul class="clearfix">
+                            <li><span><i class="wifi icon"></i> {{ coupons.clicks }} Used </span></li>
+                            <li class="modal-share">
+                                <a class="" href="#"><i class="share alternate icon"></i> Share</a>
+                                <div class="share-modal-popup ui popup top right transition hidden---">
+                                    <a class='tiny ui facebook button'
+                                       onClick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/sharer/sharer.php?u=https://coupanhaven.com/coupan_detail/{{ coupons.id }}','sharer','toolbar=0,status=0,width=548,height=325'); return false;"
+                                       href="javascript: void(0)"><i class="facebook icon"></i> Facebook</a></div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /#content-wrap -->
+
+    </div>
+    <!-- END .site-content -->
+{% endblock %}

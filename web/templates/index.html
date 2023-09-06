@@ -35,7 +35,7 @@
                             {% for store in stores %}
                                 <div class="column">
                                     <div class="store-thumb">
-                                        <a class="ui image middle aligned" href="{% url 'store-detail' store.id %}">
+                                        <a class="ui image middle aligned" href="{% url 'store-detail' pk=store.id page='1'%}">
                                             <img width="200" height="48"
                                                  src="{{ store.image.url }}"
                                                  class="attachment-wpcoupon_small_thumb size-wpcoupon_small_thumb"
@@ -63,7 +63,7 @@
                                              class="coupon-item store-listing-item has-thumb c-cat c-type-code shadow-box coupon-live">
                                             <div class="store-thumb-link">
                                                 <div class="store-thumb thumb-img">
-                                                    <a class="thumb-padding" href="{% url 'store-detail' store.id %}">
+                                                    <a class="thumb-padding" href="{% url 'store-detail' pk=store.id page='1'%}">
                                                         <img width="192" height="46"
                                                              src="{{ store.image.url }}"
                                                              class="attachment-wpcoupon_medium-thumb size-wpcoupon_medium-thumb"
@@ -72,7 +72,7 @@
                                                              loading="lazy"/> </a>
                                                 </div>
                                                 <div class="store-name"><a
-                                                        href="{% url 'store-detail' store.id %}">{{ store.name }}
+                                                        href="{% url 'store-detail' pk=store.id page='1' %}">{{ store.name }}
                                                     Coupons<i class="angle right icon"></i></a></div>
                                             </div>
 
